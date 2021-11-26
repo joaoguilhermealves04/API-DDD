@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "8e7907bd-8c43-4dc5-869d-51b5b854d21a": {
+      "ProjectGuid": "8e7907bd-8c43-4dc5-869d-51b5b854d21a",
+      "DisplayName": "ControleDeFornecedor",
+      "ColorIndex": 0
+    },
+    "7e09e6bf-93a1-4041-ae8d-d29fb4926c93": {
+      "ProjectGuid": "7e09e6bf-93a1-4041-ae8d-d29fb4926c93",
+      "DisplayName": "Domain",
+      "ColorIndex": 1
+    },
+    "d6e2fcc0-cc0b-4b0d-b63e-ddaeb5404ea2": {
+      "ProjectGuid": "d6e2fcc0-cc0b-4b0d-b63e-ddaeb5404ea2",
+      "DisplayName": "Core",
+      "ColorIndex": 2
+    },
+    "3af6f988-411a-4445-8a70-741b4dbf1e2b": {
+      "ProjectGuid": "3af6f988-411a-4445-8a70-741b4dbf1e2b",
+      "DisplayName": "Infra.Repository",
+      "ColorIndex": 3
+    },
+    "9ea46541-a294-490b-9b82-448f0d53216b": {
+      "ProjectGuid": "9ea46541-a294-490b-9b82-448f0d53216b",
+      "DisplayName": "Application",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}
