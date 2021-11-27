@@ -10,7 +10,7 @@ namespace ProjectAPI.Controllers
     [Route("api/Fornecedor")]
     public class FornecedorController : MainController
     {
-        private IFornecedorApplication _fornecedorApplication;
+        private readonly IFornecedorApplication _fornecedorApplication;
         public FornecedorController(IFornecedorApplication fornecedorApplication)
         {
             _fornecedorApplication = fornecedorApplication;
@@ -19,7 +19,7 @@ namespace ProjectAPI.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Adicionar([FromBody] FornecedorViewModels fornecedorView)
+        public async Task<IActionResult> Adicionar([FromBody] FornecedorPostViewModel fornecedorView)
         {
             try
             {
@@ -34,7 +34,7 @@ namespace ProjectAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Atualizar([FromBody] FornecedorViewModels fornecedorView)
+        public async Task<IActionResult> Atualizar([FromBody] FornecedorPostViewModel fornecedorView)
         {
             try
             {
@@ -63,7 +63,7 @@ namespace ProjectAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<FornecedorViewModels>> ObterTodos()
+        public async Task<IEnumerable<FornecedorViewModel>> ObterTodos()
         {
             return await _fornecedorApplication.ObterTodos();
         }

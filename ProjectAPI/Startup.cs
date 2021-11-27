@@ -32,6 +32,8 @@ namespace ProjectAPI
             services.AddControllers().AddNewtonsoftJson();
 
             services.AddSwaggerConfiguration();
+
+            services.RegisterService();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

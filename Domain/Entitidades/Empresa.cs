@@ -9,16 +9,16 @@ namespace Domain.Entitidades
 {
     public class Empresa : Entity
     {
-        public  string UF { get; set; }
+        public string UF { get; set; }
         public string NomeFantasma { get; set; }
         public string CNPJ { get; set; }
 
-        private Empresa(){}
+        private Empresa() { }
 
-        public Empresa(string uf,string nomefantasma,string cnpj)
+        public Empresa(string uf, string nomefantasma, string cnpj)
         {
             UF = uf;
-            NomeFantasma=nomefantasma;
+            NomeFantasma = nomefantasma;
             CNPJ = cnpj;
         }
 
@@ -39,21 +39,18 @@ namespace Domain.Entitidades
                     .NotNull()
                     .MaximumLength(2)
                     .WithMessage("digita abreviação do seu UF ex: ");
-    
-               RuleFor(x => x.NomeFantasma)
-                .NotEmpty()
-                .NotNull()
-                .MinimumLength(20)
-                .MaximumLength(150)
-                .WithMessage("Digite nome fantasma da sua Empresa");
+
+                RuleFor(x => x.NomeFantasma)
+                 .NotEmpty()
+                 .NotNull()
+                 .MaximumLength(150)
+                 .WithMessage("Digite nome fantasma da sua Empresa");
 
                 RuleFor(x => x.CNPJ)
                     .NotEmpty()
                     .NotNull()
                     .MaximumLength(11)
                     .WithMessage("O campo CNPJ nao pode ter mais de 11 numeros");
-
-
 
             }
 

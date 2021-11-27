@@ -19,7 +19,7 @@ namespace Application
             _fornecedorRepository = fornecedorRepository;
         }
 
-        public async Task<ServeStatus> Adicionar(FornecedorViewModels fornecedorView)
+        public async Task<ServeStatus> Adicionar(FornecedorPostViewModel fornecedorView)
         {
             var fornecedor = new Fornecedor(fornecedorView.Nome, fornecedorView.Telefone, fornecedorView.DataNascimento);
 
@@ -35,9 +35,9 @@ namespace Application
 
         }
 
-        public async Task<ServeStatus> Atualizar(FornecedorViewModels fornecedorView)
+        public async Task<ServeStatus> Atualizar(FornecedorPostViewModel fornecedorView)
         {
-            var fornecedor = await _fornecedorRepository.ObterPorId(fornecedorView.Id);
+            var fornecedor = await _fornecedorRepository.ObterPorId(fornecedorView.FornecedorId);
 
             fornecedor.Atualizar(fornecedorView.Nome, fornecedorView.Telefone, fornecedorView.DataNascimento);
             if (!fornecedor.ValidarEntidade().IsValid)
@@ -53,14 +53,14 @@ namespace Application
 
         }
 
-        public async Task<IEnumerable<FornecedorViewModels>> ObterTodos()
+        public async Task<IEnumerable<FornecedorViewModel>> ObterTodos()
         {
             var fornecedores = await _fornecedorRepository.ObterTodo();
-            var fornecedormv = new List<FornecedorViewModels>();
+            var fornecedormv = new List<FornecedorViewModel>();
 
             foreach (var Fornecedo in fornecedores)
             {
-                fornecedormv.Add(new FornecedorViewModels()
+                fornecedormv.Add(new FornecedorViewModel()
                 {
                     Nome = Fornecedo.Nome,
                     DataNascimento = Fornecedo.DataNascimento,
@@ -74,7 +74,7 @@ namespace Application
                     }
                 });
 
-               
+
             }
             return fornecedormv;
         }

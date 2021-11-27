@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ProjectAPI.Controllers
 {
-    public class MainController : Controller
+    public class MainController : ControllerBase
     {
 
         protected ActionResult CustomResponse(object result, List<string> erros)

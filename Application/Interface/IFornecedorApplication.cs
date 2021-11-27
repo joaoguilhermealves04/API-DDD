@@ -9,9 +9,9 @@ namespace Application.Interface
 {
     public interface IFornecedorApplication
     {
-        Task<ServeStatus> Adicionar(FornecedorViewModels fornecedorView);
-        Task<ServeStatus> Atualizar(FornecedorViewModels fornecedorView);
+        Task<ServeStatus> Adicionar(FornecedorPostViewModel fornecedorView);
+        Task<ServeStatus> Atualizar(FornecedorPostViewModel fornecedorView);
         Task Remover(Guid id);
-        Task<IEnumerable<FornecedorViewModels>> ObterTodos();
+        Task<IEnumerable<FornecedorViewModel>> ObterTodos();
     }
 }

@@ -10,7 +10,7 @@ namespace ProjectAPI.Controllers
     [Route("api/Empresa")]
     public class EmpresaController : MainController
     {
-        private IEmpresaApplication _empresaApplication;
+        private readonly IEmpresaApplication _empresaApplication;
         public EmpresaController(IEmpresaApplication empresaApplication)
         {
             _empresaApplication = empresaApplication;
@@ -48,7 +48,7 @@ namespace ProjectAPI.Controllers
         [HttpGet]
         public async Task<IEnumerable<EmpresaViewModels>> ObterTodos()
         {
-            return (IEnumerable<EmpresaViewModels>)await _empresaApplication.ObterTodos();
+            return await _empresaApplication.ObterTodos();
         }
     }
 }

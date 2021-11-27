@@ -9,7 +9,7 @@ namespace ProjectAPI.Configuration
 {
     public static class DependecyInjectionConfig
     {
-        public static void RegistreServeces(this IServiceCollection services)
+        public static void RegisterService(this IServiceCollection services)
         {
             services.AddScoped<IEmpresaApplication, EmpresaApplication>();
             services.AddScoped<IEmpresaRepository, EmpresaRepository>();

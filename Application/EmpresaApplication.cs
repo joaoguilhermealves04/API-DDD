@@ -29,6 +29,7 @@ namespace Application.ViewModels
             }
 
             await _empresaRepository.Adicionar(empresa);
+
             return await Task.FromResult(new ServeStatus("Empresa Adicionada com Sucesso!"));
         }
 
@@ -36,7 +37,7 @@ namespace Application.ViewModels
         {
             var empresa = await _empresaRepository.ObterPorId(empresaView.Id);
 
-            empresa.Atualizar(empresaView.UF,empresaView.NomeFantasma,empresaView.CNPJ);
+            empresa.Atualizar(empresaView.UF, empresaView.NomeFantasma, empresaView.CNPJ);
 
             if (!empresa.ValidarEntidade().IsValid)
             {
@@ -48,29 +49,29 @@ namespace Application.ViewModels
             return await Task.FromResult(new ServeStatus("Empresa Atualizado com Sucesso!"));
         }
 
-        public async Task<IEnumerator<EmpresaViewModels>> ObterTodos()
+        public async Task<List<EmpresaViewModels>> ObterTodos()
         {
             var empresas = await _empresaRepository.ObterTodo();
-            var empresamv= new List<EmpresaViewModels>();
+            var empresamv = new List<EmpresaViewModels>();
 
             foreach (var Empresa in empresas)
             {
                 empresamv.Add(new EmpresaViewModels()
                 {
-                    Id= Empresa.Id,
-                    UF= Empresa.UF,
-                    CNPJ= Empresa.CNPJ,
-                    NomeFantasma= Empresa.NomeFantasma,
+                    Id = Empresa.Id,
+                    UF = Empresa.UF,
+                    CNPJ = Empresa.CNPJ,
+                    NomeFantasma = Empresa.NomeFantasma,
 
                 });
 
             }
-           return (IEnumerator<EmpresaViewModels>)empresamv;
+            return empresamv;
         }
 
         public async Task Remover(Guid id)
         {
-           var empresa = await _empresaRepository.ObterPorId(id);
+            var empresa = await _empresaRepository.ObterPorId(id);
 
             empresa.EnviarParaLixeira();
 
@@ -78,5 +79,5 @@ namespace Application.ViewModels
         }
     }
 
-        
+
 }

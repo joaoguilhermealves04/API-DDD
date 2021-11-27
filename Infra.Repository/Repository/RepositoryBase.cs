@@ -20,7 +20,7 @@ namespace Infra.Repository.Repository
         public async Task Adicionar(TEntity entity)
         {
             await _contexto.AddAsync(entity);
-            _contexto.SaveChanges();
+           _contexto.SaveChanges();
         }
 
         public async Task Atualizar(TEntity entity)

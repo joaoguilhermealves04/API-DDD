@@ -37,26 +37,34 @@ namespace Domain.Entitidades
             public ForcendorValidador()
             {
                 RuleFor(x => x.Nome)
-                    .NotEmpty()
+                    .NotEmpty().WithMessage("Digite Nome do Fornecedor")
                     .NotNull()
-                    .MinimumLength(50)
                     .MaximumLength(150)
-                    .WithMessage("Digite Nome do Fornecedor");
+                    .WithMessage("Nome não pode ultrapassar 150 caracteres");
 
                 RuleFor(x => x.Telefone)
                     .NotNull()
                     .NotEmpty()
-                    .MinimumLength(6)
                     .MaximumLength(14)
                     .WithMessage("Digite Seu numero");
 
+                //RuleFor(x => x.DataNascimento)
+                //    .NotNull()
+                //    .LessThan(DateTime.Now)
+                //    .GreaterThan(DateTime.Now.AddYears(-120))
+                //    .WithMessage("Tem que ser maior de 18 anos ");
+
                 RuleFor(x => x.DataNascimento)
-                    .NotNull()
-                    .LessThan(DateTime.Now)
-                    .GreaterThan(DateTime.Now.AddYears(-120))
-                    .WithMessage("Tem que ser maior de 18 anos ");
+                  .NotEmpty()
+                  .Must(MaiorDeIdade)
+                  .WithMessage("Tem que ser maior de 18 anos ");
 
             }
+        }
+
+        private static bool MaiorDeIdade(DateTime dataNascimento)
+        {
+            return dataNascimento <= DateTime.Now.AddYears(-18);
         }
 
         public override ValidationResult ValidarEntidade()

@@ -12,7 +12,7 @@ namespace Application.Interface
         Task<ServeStatus> Adicionar(EmpresaViewModels empresaView);
         Task<ServeStatus> Atualizar(EmpresaViewModels empresaView);
         Task Remover(Guid id);
-        Task<IEnumerator<EmpresaViewModels>> ObterTodos();
+        Task<List<EmpresaViewModels>> ObterTodos();
 
     }
 }
